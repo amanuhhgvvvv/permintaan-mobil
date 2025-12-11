@@ -1,6 +1,6 @@
 import streamlit as st
 import datetime
-import gspread 
+import gspread
 import pandas as pd 
 from gspread import Worksheet
 from google.oauth2.service_account import Credentials # <-- IMPORT INI
@@ -145,3 +145,4 @@ if submit_button:
 
         except Exception as e:
             st.error(f"Terjadi kesalahan saat menyimpan data ke Google Sheets. Error: {e}")
+
