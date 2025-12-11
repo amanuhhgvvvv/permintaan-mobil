@@ -116,7 +116,7 @@ if submit_button:
                 departemen,
                 status,
                 tujuan,
-                tanggal.strftime('%Y-%m-%d'), 
+                tanggal.strftime('%d-%m-%Y'), 
             ]
 
             # Penyimpanan Data ke Google Sheets
@@ -133,3 +133,4 @@ if submit_button:
 
         except Exception as e:
             st.error(f"Terjadi kesalahan saat menyimpan data ke Google Sheets. Error: {e}")
+
