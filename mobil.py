@@ -137,5 +137,3 @@ if submit_button:
             st.success("✅ Permintaan Berhasil Diajukan dan Disimpan di Google Sheets!")
             st.balloons()
             st.error(f"Terjadi kesalahan saat menyimpan data ke Google Sheets. Error: {e}")
-
-
