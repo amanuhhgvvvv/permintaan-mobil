@@ -14,7 +14,7 @@ WORKSHEET_NAME = "PERMINTAAN MOBIL"
 # (Fungsi get_gspread_client() tidak berubah)
 @st.cache_resource(ttl=3600)
 def get_gspread_client():
-    """Menginisialisasi koneksi gspread menggunakan Streamlit Secrets (Kunci Global)."""
+    """Menginisialisasi koneksi gspread menggunakan stremlite secrets (kunci global)."""
     try:
         # PENTING: Mengambil setiap kunci secrets secara individual (metode kode lama Anda)
         creds_info = {
@@ -145,6 +145,7 @@ if submit_button:
 
         except Exception as e:
             st.error(f"Terjadi kesalahan saat menyimpan data ke Google Sheets. Error: {e}")
+
 
 
 
