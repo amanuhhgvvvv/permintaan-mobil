@@ -136,12 +136,6 @@ if submit_button:
             # 3. Pesan Sukses
             st.success("✅ Permintaan Berhasil Diajukan dan Disimpan di Google Sheets!")
             st.balloons()
-            
-            # Output Ringkasan
-            st.subheader("Ringkasan Data yang Diproses:")
-            columns = ["Nama", "NIK", "Departemen", "Status", "Tujuan", "Tanggal_Berangkat", "Waktu_Pengajuan"]
-            st.dataframe(pd.DataFrame([data_pengajuan], columns=columns))
-
-        except Exception as e:
             st.error(f"Terjadi kesalahan saat menyimpan data ke Google Sheets. Error: {e}")
+
 
