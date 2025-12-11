@@ -3,6 +3,30 @@ import datetime
 import gspread # Tambahkan library gspread
 import pandas as pd # Tambahkan pandas untuk tampilan data (opsional)
 from gspread import Worksheet
+# --- GOOGLE SHEETS CLIENT ---
+@st.cache_resource(ttl=3600)
+def get_gspread_client():
+    try:
+        creds = {
+            "type": "service_account",
+            "project_id": st.secrets["project_id"],
+            "private_key_id": st.secrets["private_key_id"],
+            "private_key": st.secrets["private_key"],
+            "client_email": st.secrets["client_email"],
+            "client_id": st.secrets["client_id"],
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+            "token_uri": "https://oauth2.googleapis.com/token",
+            "auth_provider_x509_cert_url": "https://www.googleapis.com/o...certs",
+            "client_x509_cert_url": st.secrets["client_x509_cert_url"]
+        }
+        credentials = Credentials.from_service_account_info(
+            creds,
+            scopes=["https://www.googleapis.com/auth/spreadsheets"]
+        )
+        return gspread.authorize(credentials)
+    except Exception as e:
+        st.error(f"Gagal menginisialisasi koneksi Google Sheets. Error: {e}")
+        st.stop()
 
 # --- KONFIGURASI GOOGLE SHEETS ---
 # Ganti dengan nama Spreadsheet dan Worksheet Anda
@@ -111,3 +135,4 @@ if submit_button:
 
         except Exception as e:
             st.error(f"Terjadi kesalahan saat menyimpan data ke Google Sheets. Mohon periksa kembali izin Service Account Anda. Error: {e}")
+
