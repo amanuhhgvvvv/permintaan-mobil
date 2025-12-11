@@ -132,6 +132,3 @@ if submit_button:
 
             # 2. Penyimpanan Data ke Google Sheets (Append Row)
             ws.append_row(data_pengajuan)
-            
-            # 3. Pesan Sukses
-            st.success("✅ Permintaan Berhasil Diajukan dan Disimpan di Google Sheets!")
