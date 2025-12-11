@@ -128,7 +128,6 @@ if submit_button:
                 status,
                 tujuan,
                 tanggal.strftime('%Y-%m-%d'), 
-                datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             ]
 
             # 2. Penyimpanan Data ke Google Sheets (Append Row)
@@ -145,3 +144,4 @@ if submit_button:
 
         except Exception as e:
             st.error(f"Terjadi kesalahan saat menyimpan data ke Google Sheets. Error: {e}")
+
